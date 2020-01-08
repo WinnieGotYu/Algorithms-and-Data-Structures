@@ -16,11 +16,16 @@ Input: J = "z", S = "ZZ"
 Output: 0 */
 
 var numJewelsInStones = function(J, S) {
+    //Set is similar to array but no dupe variables 
     let jSet = new Set();
     let jewels = 0;
+
+    //add unique jewels to Set 
     for(let ele of J) {
         jSet.add(ele);
     };
+
+    //if Set contains stone, jewel increment 
     for(let stone of S){
         if(jSet.has(stone)){
             jewels += 1;
