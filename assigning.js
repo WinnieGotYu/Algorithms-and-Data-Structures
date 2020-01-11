@@ -1,7 +1,6 @@
 function employeeAssign() {
   let mostAvailableEmployee;
   let availableEmployeeIdx;
-  let notOnVaccay;
   let leastTasks;
   
   //iterate through tasks
