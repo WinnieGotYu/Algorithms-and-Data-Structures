@@ -11,4 +11,4 @@ def check_shuffle(string_1, string_2, string_3):
     return string_1_pointer == len(string_1) and string_2_pointer == len(string_2)
 
 
-assert check_shuffle('135', '246789', '123456789')
+print(check_shuffle('135', '246789', '123456789'))
