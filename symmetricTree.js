@@ -24,7 +24,9 @@ var isSymmetric = function(root) {
 };
 
 function rec(left, right) {
+  //since this is binary tree if both null we have completed search
   if (left === null && right === null) return true;
+  //if all true continue recursion
   if (left && right && left.val === right.val)
     return rec(left.left, right.right) && rec(left.right, right.left);
   return false;
