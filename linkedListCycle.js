@@ -28,10 +28,13 @@ var hasCycle = function(head) {
     return false;
   }
 
+  //slow pointer moves one node at a time
+  //fast pointer moves two nodes at a time
   let slow = head;
   let fast = head.next;
 
   while (fast && fast.next) {
+    //when two nodes are the same, it is a cycle 
     if (fast === slow) return true;
 
     slow = slow.next;
