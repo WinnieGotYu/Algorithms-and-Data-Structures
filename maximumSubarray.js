@@ -15,8 +15,8 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
 //using kadane's algorithm 
 
 var maxSubArray = function(nums) {
-  let currSum = -Infinity;
-  let max = -Infinity;
+  let currSum = -Infinity,
+      max = -Infinity;
 
   for(let i in nums){
     //compares current number to current sum plus current num , keeps larger of the two
