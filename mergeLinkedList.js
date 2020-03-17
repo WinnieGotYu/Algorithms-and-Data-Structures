@@ -37,11 +37,11 @@ function mergeList(l1, l2){
 }
 
 let ll1 = new ListNode(1);
-ll1.next = new ListNode(2); 
-ll1.next.next = new ListNode(4); 
+ll1.next = new ListNode(3); 
+ll1.next.next = new ListNode(5); 
 
-let ll2 = new ListNode(1);
-ll2.next = new ListNode(3); 
-ll2.next.next = new ListNode(4); 
+let ll2 = new ListNode(2);
+ll2.next = new ListNode(4); 
+ll2.next.next = new ListNode(6); 
 
-console.log(mergeList(ll1, ll2)); //[1,1,2,3,4,4]
+console.log(mergeList(ll1, ll2)); //[1,2,3,4,5,6]
