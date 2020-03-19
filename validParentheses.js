@@ -35,6 +35,7 @@ var validParentheses = function(s) {
   return stack.length === 0;
 };
 
+
 console.log(validParentheses("")); //True
 console.log(validParentheses("()")); //True
 console.log(validParentheses("([)]")); //False
