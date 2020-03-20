@@ -1,34 +1,26 @@
 /** given an n x n 2D matrix. Rotate matrix by 180 degrees*/
 
-function rotateMatrix(matrix) {
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < i; j++) {
-      // Switch a[i][j] and a[j][i]
-      let temp = matrix[i][j];
-      matrix[i][j] = matrix[j][i];
-      matrix[j][i] = temp;
+var rotate = function(matrix) {
+  for(let c = 0; c < matrix.length; c++){
+    for(let r = c; r < matrix[c].length; r++){
+      [matrix[c][r], matrix[r][c] ] = [ matrix[r][c], matrix[c][r] ]
     }
-  }
-  for (let idx in matrix) {
-    // Reverse rows
-    matrix[idx] = matrix[idx].reverse();
+    matrix[c] = matrix[c].reverse();
   }
   return matrix;
+};
+
+function rotate180(matrix){
+  let ninty = rotate(matrix); //rotates 90deg 
+  let oneEighty = rotate(ninty); //rotates 180deg 
+  return oneEighty;
 }
 
-function oneEighty(matrix) {
-  let rotateNinety = rotateMatrix(matrix);
-  let oneEight = rotateMatrix(rotateNinety);
-  return oneEight;
-}
-
-console.log(
-  oneEighty([
+console.log(rotate180([
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
-  ])
-);
+]));
 
 /* output 
 [ 
