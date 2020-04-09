@@ -16,23 +16,47 @@ Output: true
  * permutation does not need to be a valid dictionary word
 */
 
-function palindromePermutation(str){
-  let noSpace = str.toLowerCase().split(' ').join('');
-  let obj = {};
-  let counter = 0; 
-  for(let char of noSpace){
-    obj[char] ? obj[char] += 1 : obj[char] = 1; 
-  }
-  for(let key in obj){
-    if(obj[key] % 2 === 1){
-      counter += 1;
+function hasPalindromePermutation(theString) {
+
+  // Check if any permutation of the input is a palindrome
+  //create set to keep track of seen chars
+  let seenChars = new Set();
+
+  for(let char of theString){
+    if(seenChars.has(char)){
+      //remove char if seen before
+      seenChars.delete(char)
+    } else {
+      seenChars.add(char);
     }
   }
-  return counter <= 1; 
+  
+  return seenChars.size <= 1;
 }
 
-console.log(palindromePermutation('Tact Coa')); //true 
-console.log(palindromePermutation('Tact Coaa')); //false 
-console.log(palindromePermutation('code')); //false 
-console.log(palindromePermutation('aab')); //true
-console.log(palindromePermutation('carerac')); //true
+//test
+let desc = "permutation with odd number of chars";
+assertEqual(hasPalindromePermutation('civic'), true, desc);
+
+desc = 'permutation with even number of chars';
+assertEqual(hasPalindromePermutation('aabccbdd'), true, desc);
+
+desc = 'no permutation with odd number of chars';
+assertEqual(hasPalindromePermutation('aabcd'), false, desc);
+
+desc = 'no permutation with even number of chars';
+assertEqual(hasPalindromePermutation('aabbcd'), false, desc);
+
+desc = 'empty string';
+assertEqual(hasPalindromePermutation(''), true, desc);
+
+desc = 'one character string ';
+assertEqual(hasPalindromePermutation('a'), true, desc);
+
+function assertEqual(actual, expected, description){
+  if(actual === expected){
+    console.log(`"${description}" ✅`);
+  } else {
+    console.log(`${description} ❌`);
+  }
+}
