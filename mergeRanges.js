@@ -49,4 +49,9 @@ const allMeets = [
   { startTime: 9,  endTime: 10 },
 ]; 
 
-console.log(mergeRanges(allMeets));
+console.log(mergeRanges(allMeets)); 
+/**[
+  { startTime: 0, endTime: 1 },
+  { startTime: 3, endTime: 8 },
+  { startTime: 9, endTime: 12 },
+] */
