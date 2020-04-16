@@ -19,15 +19,15 @@ function findRepeat(nums){
   let tortoise = nums[0]; 
   let hare = nums[0]; 
 
+  // find intersection point, where there is a cycle in linked list 
   while(true){
     tortoise = nums[tortoise];
-    console.log('turtle - ', tortoise);
     hare = nums[nums[hare]]; 
-    console.log('hare - ', hare);
-
+    // intersection point found
     if(tortoise === hare) break;
   }
 
+  // find entrance point of cycle 
   let ptr1 = nums[0]; 
   let ptr2 = tortoise;
 
