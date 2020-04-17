@@ -14,24 +14,19 @@ var merge = function (intervals) {
     // -1 for a puts a's index lower than b
     // 1 for b puts b's index lower than a 
     // 0 keep the same 
-    if (a[0] === 0) {
-      return -1;
-    } else if (b[0] === 0) {
-      return 1;
+    if (a[0] === b[0]) {
+      return a[1] - b[1];
     } else {
-      a[0] - b[0];
+      return a[0] - b[0];
     }
   });
-  console.log("this is sorted", sorted);
-
   // initiate result variable
   const result = [sorted[0]];
-  console.log("this is result", result);
-
+  
   // iterate through sorted copy of intervals
-  for (let i of sorted) {
+  for (let i = 0; i < sorted.length; i++) {
     // initiate current
-    const current = i;
+    const current = sorted[i];
     // initiate last
     const previous = result[result.length - 1];
 
@@ -47,13 +42,24 @@ var merge = function (intervals) {
   return result;
 };
 
-let desc = "two subarrays";
+let desc = "two pairs of integers";
 let actual = merge([
   [1, 4],
   [0, 4],
 ]);
 let expect = [[0, 4]];
 assertEqual(JSON.stringify(expect), JSON.stringify(actual), desc);
+
+desc = "three pairs of integers";
+actual = merge([[4,5],[1,4],[0,1]]);
+expect = [[0,5]];
+assertEqual(JSON.stringify(expect), JSON.stringify(actual), desc);
+
+desc = "four pairs of integers";
+actual = merge([[1,3],[2,6],[8,10],[15,18]]);
+expect = [[1,6],[8,10],[15,18]];
+assertEqual(JSON.stringify(expect), JSON.stringify(actual), desc);
+
 
 function assertEqual(a, b, desc) {
   if (a === b) {
