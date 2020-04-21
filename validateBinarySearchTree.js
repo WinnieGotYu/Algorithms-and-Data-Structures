@@ -28,7 +28,9 @@ class BinaryTreeNode {
   }
 }
 
+// This is pre-order BST (Root, left right)
 function isValidBST(treeRoot, lowerBound, upperBound){
+  
   if (!treeRoot) return true;
 
   if (treeRoot.value >= upperBound || treeRoot.value <= lowerBound) {
@@ -37,19 +39,27 @@ function isValidBST(treeRoot, lowerBound, upperBound){
 
   const left = isValidBST(treeRoot.left, lowerBound, treeRoot.value)
   const right = isValidBST(treeRoot.right, treeRoot.value, upperBound);
-
-  return left && right;
+  let result = left && right;
+  
+  return result;
 }
 
 
 // Tests
 
-let desc = 'valid full tree';
-let treeRoot = new BinaryTreeNode(50);
-let leftNode = treeRoot.insertLeft(30);
+let desc = 'Simple small invalid BST'; 
+let treeRoot = new BinaryTreeNode(5);
+let leftNode = treeRoot.insertLeft(4); 
+let rightode = treeRoot.insertRight(6);
+leftNode.insertRight(7);
+assertEquals(isValidBST(treeRoot), false, desc);
+
+desc = 'valid full tree';
+treeRoot = new BinaryTreeNode(50);
+leftNode = treeRoot.insertLeft(30);
 leftNode.insertLeft(10);
 leftNode.insertRight(40);
-let rightNode = treeRoot.insertRight(70);
+rightNode = treeRoot.insertRight(70);
 rightNode.insertLeft(60);
 rightNode.insertRight(80);
 assertEquals(isValidBST(treeRoot), true, desc);
