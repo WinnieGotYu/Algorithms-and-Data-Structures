@@ -1,23 +1,48 @@
 //Given a string, find the length of the longest substring without repeating characters.
 
-function lengthOfLongestSubstring(s) {
+function lengthOfLongestSubstring(str) {
   //create set to store seen characters 
-  let seen = new Set();
   let longest = 0;
-  let l = 0;
-  for (let r = 0; r < s.length; r++) {
-    //while seen set has the character, delete each char until it doesn't
-    while (seen.has(s[r])){
-      seen.delete(s[l]);
-      console.log('l is = ', l)
-      //increment by 1 to continue deleting
-      l++;
+  let seen = {};
+  let start = 0;
+ 
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (seen[char]) {
+      start = Math.max(start, seen[char]);
     }
-    seen.add(s[r]);
-    console.log('seen is = ', seen)
-    longest = Math.max(longest, r - l + 1);
+    // index - beginning of substring + 1 (to include current in count)
+    longest = Math.max(longest, i - start + 1);
+    // store the index of the next char so as to not double count
+    seen[char] = i + 1;
   }
   return longest;
 };
 
-console.log(lengthOfLongestSubstring('abcabcbb'))
+let desc = 'no string'; 
+expect = 0; 
+acutal = lengthOfLongestSubstring('');
+assertEqual(expect, acutal, desc);
+
+desc = 'str contains only 1 letter';
+expect = 1; 
+acutal = lengthOfLongestSubstring('bbbbbbb')
+assertEqual(expect, acutal, desc);
+
+
+desc = 'long string';
+expect = 8; 
+acutal = lengthOfLongestSubstring('longestsubstring')
+assertEqual(expect, acutal, desc);
+
+
+
+
+
+function assertEqual (a, b, desc){
+  if(a === b){
+    console.log(`"${desc}", Expected: ${a}, Output: ${b} ✅`)
+  } else {
+    console.log(`"${desc}", Expected: ${a} Output: ${b} ❌`)
+  }
+}
