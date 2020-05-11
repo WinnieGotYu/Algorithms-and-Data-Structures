@@ -1,4 +1,7 @@
-/**iven an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.
+/**Given an array nums containing n + 1 integers 
+ * where each integer is between 1 and n (inclusive), 
+ * prove that at least one duplicate number must exist. 
+ * Assume that there is only one duplicate number, find the duplicate one.
 
 Example 1:
 
@@ -17,7 +20,7 @@ There is only one duplicate number in the array, but it could be repeated more t
 
 function findRepeat(nums){
   let tortoise = nums[0]; 
-  let hare = nums[0]; 
+  let hare = nums[nums[0]]; 
 
   // find intersection point, where there is a cycle in linked list 
   while(true){
