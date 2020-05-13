@@ -37,5 +37,26 @@ var search = function(nums, target) {
   return -1;
 }
 
+function searchArr(nums, target){
+  let min = 0; 
+  let max = nums.length - 1; 
+  while(min <= max){
+    // calculate middle
+    let middle = Math.floor((min+max) / 2 );
+    let currEle = nums[middle]; 
+
+    if(currEle < target){
+      min = middle + 1; 
+    } else if( currEle > target){
+      max = middle - 1; 
+    } else {
+      return middle;
+    }
+  }
+  return -1;
+}
+
 console.log(search([-1,0,3,5,9,12], 9)) //4;
 console.log(search([-1,0,3,5,9,12], 2)) //-1;
+
+console.log(searchArr([1,2,3,4,5,6,7,8],4)); //3
