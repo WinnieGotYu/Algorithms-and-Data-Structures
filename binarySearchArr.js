@@ -21,42 +21,36 @@ Explanation: 2 does not exist in nums so return -1 */
  * @param {number} target
  * @return {number}
  */
-var search = function(nums, target) {
-    
-  //since nums is sorted in ascending, only need to search half 
-  let halfIdx = Math.floor(nums.length/2);
-  
-  //decide if searching left half or right half 
+var search = function (nums, target) {
+  //since nums is sorted in ascending, only need to search half
+  let halfIdx = Math.floor(nums.length / 2);
+
+  //decide if searching left half or right half
   let startIdx = nums[halfIdx] > target ? 0 : halfIdx;
-  
-  for(let i = startIdx; i < nums.length; i++){
-      if(nums[i] === target){
-          return i; 
-      }
-  }
-  return -1;
-}
 
-function searchArr(nums, target){
-  let min = 0; 
-  let max = nums.length - 1; 
-  while(min <= max){
-    // calculate middle
-    let middle = Math.floor((min+max) / 2 );
-    let currEle = nums[middle]; 
-
-    if(currEle < target){
-      min = middle + 1; 
-    } else if( currEle > target){
-      max = middle - 1; 
-    } else {
-      return middle;
+  for (let i = startIdx; i < nums.length; i++) {
+    if (nums[i] === target) {
+      return i;
     }
   }
   return -1;
+};
+
+function searchArr(nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  let mid = Math.floor((left + right) / 2);
+  while (left < right && nums[mid] !== target) {
+    if (target < nums[mid]) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+    mid = Math.floor((left + right) / 2);
+  }
+  return nums[mid] === target ? mid : -1; 
 }
 
-console.log(search([-1,0,3,5,9,12], 9)) //4;
-console.log(search([-1,0,3,5,9,12], 2)) //-1;
-
-console.log(searchArr([1,2,3,4,5,6,7,8],4)); //3
+console.log(searchArr([-1, 0, 3, 5, 9, 12], 9)); //4;
+console.log(searchArr([-1, 0, 3, 5, 9, 12], 2)); //-1;
+console.log(searchArr([1, 2, 3, 4, 5, 6, 7, 8], 4)); //3
