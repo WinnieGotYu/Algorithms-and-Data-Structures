@@ -45,7 +45,7 @@
 
 // function isPalindrome(str){
 //   if(str.length === 1) return true;
-//   if(str.length === 2) return str[0] === str[1]; 
+//   if(str.length === 2) return str[0] === str[1];
 //   if(str[0] === str.slice(-1)){
 //     return isPalindrome(str.slice(1, -1));
 //   }
@@ -54,3 +54,37 @@
 
 // console.log(`'tacocat' ... ${isPalindrome('tacocat')} is true`);
 // console.log(`'awesome' ... ${isPalindrome('awesome')} is false`);
+
+// function someRecursive(arr, isOdd){
+//   if(arr.length === 0){
+//     return false;
+//   }
+//   if(isOdd(arr[0])){
+//     return true;
+//   }
+//   return someRecursive(arr.splice(1), isOdd);
+// }
+// function isOdd(int){
+//   return int % 2  !== 0;
+// }
+
+// console.log(`[1,2,3,4] ... ${someRecursive([1,2,3,4], isOdd)} is true`);
+// console.log(`[4,6,8] ... ${someRecursive([4,6,8], isOdd)} is false`);
+
+function flattenArr(nestedArr) {
+  let flatten = [];
+  for (let ele of nestedArr) {
+    if (Array.isArray(ele)) {
+      flatten = flatten.concat(flattenArr(ele));
+    } else {
+      flatten.push(ele);
+    }
+  }
+  return flatten;
+}
+
+console.log(
+  `[[[[1], [[[2]]], [[[[[[[3]]]]]]]]]] ... ${flattenArr([
+    [[[[1], [[[2]]], [[[[[[[3]]]]]]]]]],
+  ])} is [1,2,3]`
+);
