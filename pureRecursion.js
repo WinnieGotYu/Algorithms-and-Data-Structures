@@ -25,20 +25,32 @@
 //   : console.log(`${input} FAILED, expect: ${expect}, acutual: ${actual}`);
 // }
 
-function reverse(str) {
-  if (str.length <= 1) {
-    return str;
-  }
-  console.log(`this is curr string ${str}`);
-  return reverse(str.slice(1)) + str[0];
-}
+// function reverse(str) {
+//   if (str.length <= 1) {
+//     return str;
+//   }
+//   console.log(`this is curr string ${str}`);
+//   return reverse(str.slice(1)) + str[0];
+// }
 
-let input = "awesome";
-let output = reverse(input);
-let expect = "emosewa";
-assertEqual(expect, output);
-function assertEqual(a, b) {
-  a === b
-    ? console.log(`${input} PASS, ${output} = ${expect}`)
-    : console.log(`${input} FAILED, ${output} != ${expect}`);
-}
+// let input = "awesome";
+// let output = reverse(input);
+// let expect = "emosewa";
+// assertEqual(expect, output);
+// function assertEqual(a, b) {
+//   a === b
+//     ? console.log(`${input} PASS, ${output} = ${expect}`)
+//     : console.log(`${input} FAILED, ${output} != ${expect}`);
+// }
+
+// function isPalindrome(str){
+//   if(str.length === 1) return true;
+//   if(str.length === 2) return str[0] === str[1]; 
+//   if(str[0] === str.slice(-1)){
+//     return isPalindrome(str.slice(1, -1));
+//   }
+//   return false
+// }
+
+// console.log(`'tacocat' ... ${isPalindrome('tacocat')} is true`);
+// console.log(`'awesome' ... ${isPalindrome('awesome')} is false`);
