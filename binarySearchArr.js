@@ -39,7 +39,7 @@ var search = function (nums, target) {
 function searchArr(nums, target) {
   let left = 0;
   let right = nums.length - 1;
-  let mid = Math.floor((left + right) / 2);
+  let mid = Math.floor((left + (right - left) )/ 2);
   while (left < right && nums[mid] !== target) {
     if (target < nums[mid]) {
       right = mid - 1;
