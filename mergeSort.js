@@ -47,3 +47,4 @@ function mergeSort(arr) {
 }
 
 console.log(mergeSort([4, 20, 12, 10, 7, 9])); // [4, 7, 9, 10, 12, 20]
+console.log(mergeSort([4, 10, 12, 10,7])); // [4, 7, 10, 10, 12]
