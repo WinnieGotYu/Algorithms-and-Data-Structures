@@ -9,7 +9,7 @@ function merge(arr1, arr2) {
   let j = 0;
 
   while (i < arr1.length && j < arr2.length) {
-    if (arr2[i] > arr1[i]) {
+    if (arr2[j] > arr1[i]) {
       result.push(arr1[i]);
       i++;
     } else {
@@ -18,20 +18,14 @@ function merge(arr1, arr2) {
     }
   }
 
-  // while(i < arr1.length){
-  //   result.push(arr1[i]);
-  //   i++
-  // }
+  while(i < arr1.length){
+    result.push(arr1[i]);
+    i++
+  }
 
-  // while(j < arr2.length){
-  //   result.push(arr2[j]);
-  //   j++;
-  // }
-
-  if (i < arr1.length) {
-    result = result.concat(arr1.slice(i));
-  } else {
-    result = result.concat(arr2.slice(j));
+  while(j < arr2.length){
+    result.push(arr2[j]);
+    j++;
   }
 
   return result;
@@ -47,4 +41,4 @@ function mergeSort(arr) {
 }
 
 console.log(mergeSort([4, 20, 12, 10, 7, 9])); // [4, 7, 9, 10, 12, 20]
-console.log(mergeSort([4, 10, 12, 10,7])); // [4, 7, 10, 10, 12]
+console.log(mergeSort([10, 24, 76, 73, 72, 1, 9])); // [1,9,10,24,72,73,76]
