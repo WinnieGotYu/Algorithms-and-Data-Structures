@@ -45,7 +45,7 @@ function generateParenthesis(n){
   }
 
   buildResult();
-  return result; 
+  return result;
 }
 
 // TEST
