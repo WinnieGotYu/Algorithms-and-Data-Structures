@@ -8,11 +8,9 @@ function isAnagram(str, str2){
     ? seenChars[char] + 1
     : 1; 
   }
-
+  
   for(let char of str2){
-    if(!seenChars[char]){
-      return false;
-    } else if(seenChars[char] <= 0){
+    if(seenChars[char] <= 0 || !seenChars[char]){
       return false;
     } else {
       seenChars[char]--;
