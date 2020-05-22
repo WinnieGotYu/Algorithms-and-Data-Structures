@@ -21,28 +21,42 @@ function ListNode(val) {
   this.next = null;
 }
 
-var hasCycle = function(head) {
-  if (!head || !head.next) {
-    // no list
-    // or just the head (can't have a cycle right?!)
-    return false;
+// var hasCycle = function(head) {
+//   if (!head || !head.next) {
+//     // no list
+//     // or just the head (can't have a cycle right?!)
+//     return false;
+//   }
+
+//   //slow pointer moves one node at a time
+//   //fast pointer moves two nodes at a time
+//   let slow = head;
+//   let fast = head.next;
+
+//   while (fast && fast.next) {
+//     //when two nodes are the same, it is a cycle 
+//     if (fast === slow) return true;
+
+//     slow = slow.next;
+//     fast = fast.next.next;
+//   }
+
+//   return false;
+// };
+
+function hasCycle(head){
+  let current = head;
+  while(current){
+    if(current.val === 'seen'){
+      return true;
+    }
+    current.val = 'seen';
+    current = current.next;
   }
-
-  //slow pointer moves one node at a time
-  //fast pointer moves two nodes at a time
-  let slow = head;
-  let fast = head.next;
-
-  while (fast && fast.next) {
-    //when two nodes are the same, it is a cycle 
-    if (fast === slow) return true;
-
-    slow = slow.next;
-    fast = fast.next.next;
-  }
-
   return false;
-};
+}
+
+
 
 //create LL 
 let node1 = new ListNode(1);
