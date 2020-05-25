@@ -20,18 +20,15 @@ function hasPalindromePermutation(theString) {
 
   // Check if any permutation of the input is a palindrome
   //create set to keep track of seen chars
-  let seenChars = new Set();
-
+  const seen = new Set();
   for(let char of theString){
-    if(seenChars.has(char)){
-      //remove char if seen before
-      seenChars.delete(char)
+    if(seen.has(char)){
+      seen.delete(char);
     } else {
-      seenChars.add(char);
+      seen.add(char);
     }
   }
-  
-  return seenChars.size <= 1;
+  return seen.size <= 1;
 }
 
 //test
