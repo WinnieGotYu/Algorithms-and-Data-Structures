@@ -45,25 +45,25 @@ class Graph {
     return false;
   }
 
-  // DFS - 
-  // areConnectedDFS(vertex1, vertex2){
-  //   const toVisitStack = [vertex1];
-  //   const seen = new Set(toVisitStack);
+  // DFS - go all the way through one route
+  areConnectedDFS(vertex1, vertex2){
+    const toVisitStack = [vertex1];
+    const seen = new Set(toVisitStack);
 
-  //   while(toVisitStack.length){
-  //     let currVertex = toVisitStack.pop();
-  //     if(currVertex === vertex2) return true;
+    while(toVisitStack.length){
+      let currVertex = toVisitStack.pop();
+      if(currVertex === vertex2) return true;
 
-  //     for(let neighbor of currVertex.adjacent){
-  //       if(!seen.has(neighbor)){
-  //         toVisitStack.push(neighbor);
-  //         seen.add(neighbor);
-  //       }
-  //     }
-  //   }
+      for(let neighbor of currVertex.adjacent){
+        if(!seen.has(neighbor)){
+          toVisitStack.push(neighbor);
+          seen.add(neighbor);
+        }
+      }
+    }
     
-  //   return false;
-  // }
+    return false;
+  }
 }
 
 const g1 = new Graph();
