@@ -34,4 +34,4 @@
 
 
 
-validAnagram('cat', 'tac')
+validAnagram('cat', 'tac') 
