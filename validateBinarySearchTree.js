@@ -44,7 +44,6 @@ function isValidBST(treeRoot, lowerBound, upperBound){
   return result;
 }
 
-
 // Tests
 
 let desc = 'Simple small invalid BST'; 
