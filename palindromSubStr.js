@@ -59,4 +59,33 @@ var countSubstrings = function (s) { // aaa
   return count;
 };
 
+// Brute Force 
+
+var countSubstrings = function(s) {
+  const isPalindrome = (str) => {
+      let i = 0; 
+      let j = str.length - 1; 
+      while(i < j){
+          if(str[i] !== str[j]) return false;
+          i++;
+          j--;
+      }
+      return true;
+  }
+  
+  let palindromes = 0; 
+  
+  for(let i = 0; i < s.length; i++){
+      for(let j = i; j < s.length; j++){
+          let tempStr = s.slice(i, j+1);
+          console.log(tempStr);
+          if(isPalindrome(tempStr)){
+              palindromes++;
+          }
+      }
+  }
+  
+  return palindromes;
+};
+
 console.log(`'aaa': ${countSubstrings("aaa")} --- 6`);
