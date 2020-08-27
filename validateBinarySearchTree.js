@@ -44,6 +44,39 @@ function isValidBST(treeRoot, lowerBound, upperBound){
   return result;
 }
 
+// const isValidBST = function(root) {
+//   if(root === null) return true;
+  
+//   const stack = [{ node: root, minimum: -Infinity, maximum: Infinity }];
+  
+//   while(stack.length) {
+//     const { node, minimum, maximum } = stack.pop();
+//     if(node.val <= minimum || node.val >= maximum) return false;
+    
+//     if(node.left !== null) {
+//       stack.push({ node: node.left, minimum, maximum: node.val });
+//     }   
+    
+//     if(node.right !== null) {
+//       stack.push({ node: node.right, minimum: node.val , maximum });
+//     }
+//   }
+  
+//   return true;
+// };
+
+// var isValidBST = function(root, min, max){
+//   return isValidBSTHelper(root, -Infinity, Infinity);
+// };
+
+// let isValidBSTHelper = function(root, min, max){
+//   if(root === null) return true;
+//   if(root.val <= min || root.val >= max) return false;
+//   const left = isValidBSTHelper(root.left, min, root.val);
+//   const right = isValidBSTHelper(root.right, root.val, max);
+//   return left && right;
+// }
+
 // Tests
 
 let desc = 'Simple small invalid BST'; 
