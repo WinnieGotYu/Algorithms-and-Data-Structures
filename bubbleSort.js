@@ -1,14 +1,32 @@
 /** Implement a function called bubbleSort. 
  * Given an array, bubbleSort will sort the values in the array.*/
 
-function bubbleSort(nums){
-  for(let i = 0; i < nums.length; i++){
-    for(let j = i+1; j < nums.length; j++)
-      if(nums[i] > nums[j]){
-        [nums[i], nums[j]] = [nums[j], nums[i]];
-      }
+// function bubbleSort(nums){
+//   for(let i = 0; i < nums.length; i++){
+//     for(let j = i+1; j < nums.length; j++)
+//       if(nums[i] > nums[j]){
+//         [nums[i], nums[j]] = [nums[j], nums[i]];
+//       }
+//   }
+//   return nums;
+// }
+
+const bubbleSort = (arr) => {
+  const swap = (arr, idx1, idx2) => {
+    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
   }
-  return nums;
+  let noSwap; 
+  for(let i = arr.length - 1; i >= 0; i++){
+    noSwap = true;
+    for(let j = 0; j < i - 1; j++){
+      if(arr[j] > arr[j+1]){
+        noSwap = false;
+        swap(arr, j, j+1);
+      };
+    }
+    if(noSwap) break;
+  }
+  return arr;
 }
 
 let nums = [
