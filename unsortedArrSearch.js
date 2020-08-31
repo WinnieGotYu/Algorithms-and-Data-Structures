@@ -21,3 +21,4 @@ console.log(unsortedSearch([9,8,4,7,3,1,2],7)); // 3
 console.log(unsortedSearch([9,8,4,7,3,1,2],0)); // -1
 console.log(unsortedSearch([-1, 0, 3, 5, 9, 12], 9)); // -1
 
+
