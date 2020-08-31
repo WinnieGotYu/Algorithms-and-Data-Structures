@@ -1,6 +1,6 @@
 const insertionSort = (arr) => {
   // start index at 1, assume element at 
-  //index 0 is in the correct position
+  // index 0 is in the correct position
   for(let i = 1; i < arr.length; i++){
     let j = i - 1;
     let current = arr[i];
