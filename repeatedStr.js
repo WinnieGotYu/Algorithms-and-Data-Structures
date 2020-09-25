@@ -6,15 +6,23 @@ For example, if the string  and , the substring we consider is , the first  char
 
 
 function repeatedString(s, n) {
-  let newStr = "";
-  while(newStr.length < 10){
-    newStr += s;
+  let numberOfAs = 0;
+
+  if(n >= s.length){
+    // Counts number of As
+    let occurrencesOfAs = [...s].filter(char => char === "a").length;
+
+    // Multiply by times to be repeated
+    numberOfAs = Math.floor(n/s.length) * occurrencesOfAs;  
   }
-  let count = 0;
-  for(let i = 0; i < 10; i++){
-    if(newStr[i] === "a") count++;
+
+  let tailStringLength = n % s.length;
+
+  for(let i = 0; i < tailStringLength; i++){
+    if(s[i] === "a") numberOfAs++;
   }
-  return count;
+
+  return numberOfAs;
 }
 
 console.log(repeatedString("aba", 10));
