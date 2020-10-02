@@ -23,36 +23,34 @@ Note:
 S will have length in range [1, 500].
 S will consist of lowercase English letters ('a' to 'z') only. */
 
-var partitionLabels = function(S) {
-
-  if(!S || S.length === 0){
+const partitionLabels = function (S) {
+    if (!S || S.length === 0) {
       return S;
-  }
+    }
   
-  let map = new Map(), len = 0, arr = [];
+    let map = new Map();
+    let pointer = 0;
+    let arr = [];
   
-  for(let i=0; i<S.length; i++){
-      map.set(S[i], i);
-  }
- 
-  while(len < S.length){
-
-      let start = len, s="";
-      let end = map.get(S[start]);
+    for (let i = 0; i < S.length; i++) {
+      map.set(S[i], i); // i will be index of the last seen char in the string
+    }
   
-      while(start <= end){
+    while (pointer < S.length) { // iterate through S 
+      let s = "";  // Create subString
+      let end = map.get(S[pointer]); // end is index of last occurance of char
   
-          s += S[start];
-          end = Math.max(map.get(S[end]),map.get(S[start]));
-          len++;
-          start++;
+      while (pointer <= end) {
+        s += S[pointer];
+        end = Math.max(map.get(S[end]), map.get(S[pointer])); // find the bigger index (ending)
+        pointer++;
       }
-      
+  
       arr.push(s.length);
-  }
-  return arr;  
-};
+    }
+    return arr;
+  };
 
-console.log(partitionLabels("ababcbacadefegdehijhklij")); 
+console.log(partitionLabels("ababcbacadefegdehijhklij"));
 // [9, 7, 8]
 // "ababcbaca", "defegde", "hijhklij"
