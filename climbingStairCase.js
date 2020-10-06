@@ -59,20 +59,25 @@ Expected Output:
 
 function climbingStaircase(n, k) {
   let output = [];
-  function listWaysUntil(output, steps = [], k, n) {
+  
+  function listWaysUntil(steps = [], k, n) {
     if (n === 0) {
       output.push([...steps]);
     } else {
+      // Start i at 1 because step count starts at 1 
+      // Loop while i < k, k is max number of steps it can take 
+      // Recurse with n - i and steps
       for (let i = 1; i < k + 1; i++) {
         if (i <= n) {
           steps.push(i);
-          listWaysUntil(output, steps, k, n - i);
+          listWaysUntil(steps, k, n - i);
           steps.pop();
         }
       }
     }
   }
-  listWaysUntil(output, [], k, n);
+
+  listWaysUntil([], k, n);
   return output;
 }
 
