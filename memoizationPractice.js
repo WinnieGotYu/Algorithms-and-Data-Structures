@@ -48,6 +48,8 @@ const memoize = (callback) => {
       return result;
     }
   }
+
+  return addToCache;
 }
 
 const memoizedTimes10 = memoize(times10);
