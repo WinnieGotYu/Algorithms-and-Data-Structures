@@ -20,14 +20,12 @@ But the following [1,2,2,null,3,null,3] is not:
 var isSymmetric = function(root) {
   //if root is null, it is a mirror of itself
   if (root === null) return true;
-  return rec(root.left, root.right);
-};
 
-function rec(left, right) {
-  //since this is binary tree if both null we have completed search
-  if (left === null && right === null) return true;
-  //if all true continue recursion
-  if (left && right && left.val === right.val)
-    return rec(left.left, right.right) && rec(left.right, right.left);
-  return false;
-}
+  const isMirror = (left, right) => {
+    if(!left && !right) return true;  //since this is binary tree if both null we have completed search
+    if((!left || !right) || left.val !== right.val) return false;
+    //if all true continue recursion
+    return isMirror(left.left, right.right) && isMirror(left.right, right.left);
+   }
+  return isMirror(root.left, root.right);
+};
