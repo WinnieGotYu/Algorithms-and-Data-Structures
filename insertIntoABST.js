@@ -29,22 +29,23 @@ Output: [4,2,7,1,3,5]
  * @return {TreeNode}
  */
 var insertIntoBST = function(root, val) {
-    if(root === null) return new TreeNode(val);
+    if(root === null) return new TreeNode(val); // Handle edge case
 
-    let currentNode = root;
+    let currentNode = root; // Start at root 4 
+    
     while(true){
-      if(currentNode.val <= val){
-        if(currentNode.right !== null){
-          currentNode = currentNode.right;
+      if(currentNode.val < val){  // 4 < 5 ? Yes. // 7 < 5 ? No. 
+        if(currentNode.right !== null){ 
+          currentNode = currentNode.right; // currentNode = 7 
         } else {
           currentNode.right = new TreeNode(val);
           break;
         }
       } else {
-        if(currentNode.left === null){
+        if(currentNode.left !== null){
           currentNode = currentNode.left;
         } else {
-          currentNode.left = new TreeNode(val);
+          currentNode.left = new TreeNode(val); // Add new TreeNode(5) to left of node 7
         }
       }
     }
