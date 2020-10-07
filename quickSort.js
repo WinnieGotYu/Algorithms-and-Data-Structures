@@ -1,3 +1,25 @@
+// // Basic implementation (pivot is the first element of the array)
+function quicksort(array) {
+  if (array.length === 0) return []; // Base case for recursion to exit 
+
+  var left = [],
+    right = [],
+    pivot = array[0]; // Pivot is the first element of the array
+
+  for (var i = 1; i < array.length; i++) { // Starts i at 1 since we are using index 0 as pivot
+    if (array[i] < pivot) {
+      left.push(array[i]); // Push values less than pivot to left arr
+    } else {
+      right.push(array[i]); // Push values greater than pivot to left arr
+    }
+  }
+  return quicksort(left).concat(pivot, quicksort(right)); // concat the arrays left + (pivot, right)
+}
+
+// Create an array to sort
+// var array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 12, 8, 11];
+
+
 // var items = [5,3,7,6,2,9];
 
 // function swap(items, leftIndex, rightIndex){
@@ -43,26 +65,6 @@
 // var sortedArray = quickSort(items, 0, items.length - 1);
 // console.log(sortedArray); //prints [2,3,5,6,7,9]
 
-// Create an array to sort
-// var array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 12, 8, 11];
-
-// // Basic implementation (pivot is the first element of the array)
-function quicksort(array) {
-  if (array.length === 0) return [];
-
-  var left = [],
-    right = [],
-    pivot = array[0];
-
-  for (var i = 1; i < array.length; i++) {
-    if (array[i] < pivot) {
-      left.push(array[i]);
-    } else {
-      right.push(array[i]);
-    }
-  }
-  return quicksort(left).concat(pivot, quicksort(right));
-}
 
 // function pivot(arr, st=0, end=arr.length){
 //     let pivot = arr[st];
