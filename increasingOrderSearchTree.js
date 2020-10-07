@@ -46,14 +46,14 @@ Output: [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
  */
 const increasingBST = (root) => {
 
-  var newRoot = new TreeNode();
-  var tempTree = newRoot;
+  let currentNode = new TreeNode();
+  let tempTree = currentNode;
 
   const traversal = (node) => { //IN-ORDER traversal
     if (!node) return;
     traversal(node.left); // 1. Check `Left` Node
-    newRoot.right = new TreeNode(node.val); // 2. Add `Node`to newRoot
-    newRoot = newRoot.right; // 3. Move pointer to recently created node
+    currentNode.right = new TreeNode(node.val); // 2. Add `Node`to currentNode
+    currentNode = currentNode.right; // 3. Move pointer to recently created node
     traversal(node.right);  // 4. Check `Right` Node 
 }
 
