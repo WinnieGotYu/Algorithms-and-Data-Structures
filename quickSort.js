@@ -17,7 +17,9 @@ function quicksort(array) {
 }
 
 // Create an array to sort
-// var array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 12, 8, 11];
+var array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 12, 8, 11];
+
+console.log(quicksort(array));
 
 
 // var items = [5,3,7,6,2,9];
