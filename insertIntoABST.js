@@ -28,26 +28,37 @@ Output: [4,2,7,1,3,5]
  * @param {number} val
  * @return {TreeNode}
  */
-var insertIntoBST = function(root, val) {
-    if(root === null) return new TreeNode(val); // Handle edge case
 
-    let currentNode = root; // Start at root 4 
-    
-    while(true){
-      if(currentNode.val < val){  // 4 < 5 ? Yes. // 7 < 5 ? No. 
-        if(currentNode.right !== null){ 
-          currentNode = currentNode.right; // currentNode = 7 
-        } else {
-          currentNode.right = new TreeNode(val);
-          break;
-        }
+/**
+ * 1. declare currentNode as root 
+ * 2. enter while loop with True
+ * 3. check if current node value is greater than or less than val
+ * 4. if less than current node value, 
+ *    check if left node exist if no, set new Treenode()
+ * 5. if greater than current node value, 
+ *    check if right node exist, if no, set new TreeNode()
+ */
+const insertIntoBST = function (root, val) {
+  if (root === null) return new TreeNode(val); // Handle edge case
+
+  let currentNode = root; // Start at root 4
+
+  while (true) {
+    if (currentNode.val < val) {
+      // 4 < 5 ? Yes. // 7 < 5 ? No.
+      if (currentNode.right !== null) {
+        currentNode = currentNode.right; // currentNode = 7
       } else {
-        if(currentNode.left !== null){
-          currentNode = currentNode.left;
-        } else {
-          currentNode.left = new TreeNode(val); // Add new TreeNode(5) to left of node 7
-        }
+        currentNode.right = new TreeNode(val);
+        break;
+      }
+    } else {
+      if (currentNode.left !== null) {
+        currentNode = currentNode.left;
+      } else {
+        currentNode.left = new TreeNode(val); // Add new TreeNode(5) to left of node 7
       }
     }
-    return root;
+  }
+  return root;
 };
