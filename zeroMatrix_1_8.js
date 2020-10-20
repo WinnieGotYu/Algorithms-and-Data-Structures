@@ -46,7 +46,7 @@ const setZeroes = function(matrix) {
 
   //loop through zeros indexs 
   for(let location of zeros){
-    _inputZeros(location);
+    _inputZeros(location); 
   }
 
   //relace with zeros
