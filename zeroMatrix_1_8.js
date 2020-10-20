@@ -34,7 +34,7 @@ Output:
  * @param {number[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
-var setZeroes = function(matrix) {
+const setZeroes = function(matrix) {
   const zeros = []; 
 
   //find location of zeros 

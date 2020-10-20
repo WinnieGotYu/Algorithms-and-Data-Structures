@@ -1,4 +1,4 @@
-var threeSum = function(nums) {
+const threeSum = function(nums) {
     nums.sort((a, b) => {
         return a - b;
     });
