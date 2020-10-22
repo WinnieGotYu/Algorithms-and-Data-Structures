@@ -32,7 +32,7 @@ Explanation: All root-to-leaf paths are: 1->2->5, 1->3
  * @return {string[]}
  */
 
-var binaryTreePaths = function(root) {
+const binaryTreePaths = function(root) {
   const result = []; 
 
   const traverse = (node, path = "") => {
